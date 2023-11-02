@@ -18,7 +18,11 @@
 		"url": "https://github.com/smeyk/oleksii-js-hw-10/issues"
 	},
 	"dependencies": {
-		"modern-normalize": "^1.1.0"
+		"axios": "^1.6.0",
+		"buffer": "^6.0.3",
+		"modern-normalize": "^1.1.0",
+		"notiflix": "^3.2.6",
+		"slim-select": "^2.6.0"
 	},
 	"devDependencies": {
 		"@parcel/transformer-sass": "^2.6.0",

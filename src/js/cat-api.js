@@ -8,27 +8,28 @@ export const catInfo = document.querySelector(".cat-info");
 const loader = document.querySelector(".loader");
 
 
-selector.style.display = 'none';
-catInfo.style.display = 'none';
-loader.style.display = "flex";
-
 
 export const fetchCatByBreed = (breedId) => {
+	loader.style.display = "flex";
+	catInfo.style.display = 'none';
+	selector.style.display = 'none';
 	return axios.get(`${API_URL}/images/search?api_key=${API_KEY}&breed_ids=${breedId}`)
 		.then(response => {
-			if (response.status === 200) {
-				return response
-			}
-			else {
+			if (response.status !== 200) {
 				throw new Error(response.data.error);
 			}
+			return response;
 		})
 		.finally(function () {
 			loader.style.display = "none";
+			catInfo.style.display = 'block';
 		});
 }
 
 export const fetchBreeds = () => {
+	selector.style.display = 'none';
+	catInfo.style.display = 'none';
+	loader.style.display = "flex";
 	return axios.get(`${API_URL}/breeds?api_key=${API_KEY}`)
 		.then(response => {
 			if (response.status !== 200) {

@@ -8,11 +8,6 @@ export const catInfo = document.querySelector(".cat-info");
 const loader = document.querySelector(".loader");
 
 
-selector.style.display = 'none';
-catInfo.style.display = 'none';
-loader.style.display = "flex";
-
-
 export const fetchCatByBreed = (breedId) => {
 	return axios.get(`${API_URL}/images/search?api_key=${API_KEY}&breed_ids=${breedId}`)
 		.then(response => {

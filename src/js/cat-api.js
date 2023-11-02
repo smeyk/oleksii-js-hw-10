@@ -7,6 +7,7 @@ export const selector = document.querySelector(".breed-select");
 export const catInfo = document.querySelector(".cat-info");
 const loader = document.querySelector(".loader");
 
+
 selector.style.display = 'none';
 catInfo.style.display = 'none';
 loader.style.display = "flex";

@@ -12,6 +12,10 @@
 	position: relative;
 }
 
+.breed-select {
+	display: none;
+}
+
 .loader {
 	width: 48px;
 	height: 48px;

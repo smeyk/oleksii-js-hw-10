@@ -3,13 +3,13 @@ const API_KEY = "live_PGOvlK1LuOs5S0w40z8idCBrNpZfWSapTpxs5aRtm9fjEM4TdJLNuUmBZj
 const API_URL = "https://api.thecatapi.com/v1";
 axios.defaults.headers.common["x-api-key"] = API_KEY;
 
-export const selector = document.querySelector(".breed-select");
-export const catInfo = document.querySelector(".cat-info");
+const selector = document.querySelector(".breed-select");
+const catInfo = document.querySelector(".cat-info");
 const loader = document.querySelector(".loader");
 
 
 
-export const fetchCatByBreed = (breedId) => {
+const fetchCatByBreed = (breedId) => {
 	loader.style.display = "flex";
 	catInfo.style.display = 'none';
 	selector.style.display = 'none';
@@ -18,7 +18,7 @@ export const fetchCatByBreed = (breedId) => {
 			if (response.status !== 200) {
 				throw new Error(response.data.error);
 			}
-			return response;
+			return response.data;
 		})
 		.finally(function () {
 			loader.style.display = "none";
@@ -26,7 +26,7 @@ export const fetchCatByBreed = (breedId) => {
 		});
 }
 
-export const fetchBreeds = () => {
+const fetchBreeds = () => {
 	selector.style.display = 'none';
 	catInfo.style.display = 'none';
 	loader.style.display = "flex";
@@ -35,10 +35,12 @@ export const fetchBreeds = () => {
 			if (response.status !== 200) {
 				throw new Error(response.data.error);
 			}
-			return response;
+			return response.data;
 		})
 		.finally(function () {
 			selector.style.display = 'flex';
 			catInfo.style.display = 'block';
 		});
 }
+
+export { selector, catInfo, fetchBreeds, fetchCatByBreed };
